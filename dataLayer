@@ -11,5 +11,5 @@ $('.result-btn').on("click",function() {
     });
     // dataLayerオブジェクトの初期化
     dataLayer.push({'EventLabel': null });
-    dataLayer.push({'event':'ButtonClick', 'EventCatagory':'simu_result', 'EventLabel':arr})
+    dataLayer.push({'event':'ButtonClick', 'EventCatagory':'result', 'EventLabel':arr})
 });
