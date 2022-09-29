@@ -1,15 +1,15 @@
-//チェックボックスの文字列データ取得してdataLayerに入れる
+// チェックボックスの文字列データ取得してdataLayerに入れる
 
 $('.result-btn').on("click",function() {
     // 配列を宣言
     var arr = [];
-    $('.purchase-check:checked').each(function(){
+    $('.check-box:checked').each(function(){
         // 無効化する
         $(this).prop('disabled', true);
         // チェックされているdataの値を配列に格納
         arr.push($(this).data('name'));
     });
-    //dataLayerオブジェクトの初期化
+    // dataLayerオブジェクトの初期化
     dataLayer.push({'EventLabel': null });
     dataLayer.push({'event':'ButtonClick', 'EventCatagory':'simu_result', 'EventLabel':arr})
 });
