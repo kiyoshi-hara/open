@@ -1,0 +1,26 @@
+最大、最小ビューポートのclampの計算
+
+//for clamp gulp用
+//ex. font-size: global.clampSlopeVW(16, 400, 1000, 32); <=最小フォントサイズ16px、最小viewport400px、 最大viewport1000px、最大フォントサイズ32px
+@function clampSlopeVW($minSize, $minWidth, $maxWidth, $maxSize) {
+  $minEm: calc($minSize / 16 * 1rem);
+  $maxEm: calc($maxSize / 16 * 1rem);
+  $slope: calc(($maxSize - $minSize) / ($maxWidth - $minWidth));
+  $yAxisIntersection: calc((0 - $minWidth / 16) * $slope + $minSize / 16);
+  $slopeMax: calc(($slope * 100) * 1vw);
+  $slopeMin: calc($yAxisIntersection * 1rem);
+  @return clamp($minEm, $slopeMin + $slopeMax, $maxEm);
+}
+
+//for clamp Ruby用
+//ex. font-size: clampSlopeVW(16, 400, 1000, 32); <=最小フォントサイズ16px、最小viewport400px、 最大viewport1000px、最大フォントサイズ32px
+@function clampSlopeVW($minSize, $minWidth, $maxWidth, $maxSize) {
+  $minEm: $minSize / 16 * 1rem;
+  $maxEm: $maxSize / 16 * 1rem;
+  $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
+  $yAxisIntersection: (0 - $minWidth / 16) * $slope + $minSize / 16;
+  $slopeMax: $slope * 100 * 1vw;
+  $slopeMin: $yAxisIntersection * 1rem;
+  $return-value: clamp(#{$minEm}, #{$slopeMin} + #{$slopeMax}, #{$maxEm});
+  @return $return-value;
+}
