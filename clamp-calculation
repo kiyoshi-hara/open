@@ -1,4 +1,4 @@
-clumpジェネレーターに頼らずSASSで最大、最小ビューポート付きのclampの計算をする
+clampジェネレーターに頼らずSASSで最大、最小ビューポート付きのclampの計算をする
 
 //for clamp gulp用
 //ex. font-size: global.clampSlopeVW(16, 400, 1000, 32); <=最小フォントサイズ16px、最小viewport400px、 最大viewport1000px、最大フォントサイズ32px
